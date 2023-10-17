@@ -1,20 +1,16 @@
-<div>
-
-</div>
-
-<div data-controller="code-editor" class="h-full w-full pt-2 lg:columns-2 gap-1" >
-  <div class="flex flex-col lg:h-full sm:h-3/6">
+<div data-controller="code-editor" data-code-editor-inactive-klass-value="text-purple-400 hover:text-purple-800" data-code-editor-active-klass-value="border-b-4 border-purple-800 text-purple-800 hover:text-purple-400" class="h-full w-full pt-2 lg:columns-2 gap-1" >
+  <div class="flex flex-col lg:h-full h-1/2">
     <div class="">
-      <div class="px-5 bg-slate-950">
-        <button class="bg-[#2e2f3f] text-white text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="html">
+      <div class="px-5">
+        <button class="hover:bg-slate-200 text-purple-800 hover:text-purple-400 text-xs py-1 px-4 mx-1 rounded-t border-b-4 border-purple-800" data-code-editor-target="languageToggle" data-language="html">
           <i class="fa-brands fa-html5"></i> &nbsp;
           html
         </button>
-        <button class="bg-slate-950 hover:bg-slate-800 text-white text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="css">
+        <button class="hover:bg-slate-200 text-purple-400 hover:text-purple-800 text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="css">
           <i class="fa-brands fa-css3-alt"></i> &nbsp;
           css
         </button>
-        <button class="bg-slate-950 hover:bg-slate-800 text-white text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="javascript">
+        <button class="hover:bg-slate-200 text-purple-400 hover:text-purple-800 text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="javascript">
           <i class="fa-brands fa-square-js"></i> &nbsp;
           js
         </button>
@@ -25,14 +21,8 @@
     <div class="flex-1 hidden" data-code-editor-target="editor" data-language="javascript"></div>
   </div>
 
-  <div class="lg:h-full sm:h-3/6">
+  <div class="lg:h-full h-1/2 pt-6">
     <iframe style="width: 100%; height: 100%; background: white;">
     </iframe>
   </div>
 </div>
-
-<style>
-  body {
-    background-color: rgb(2 6 23);
-  }
-</style>

@@ -8,6 +8,10 @@ import { dracula } from 'thememirror';
 // Connects to data-controller="code-editor"
 export default class extends Controller {
     static targets = ["editor", "languageToggle"]
+    static values = {
+        activeKlass: String,
+        inactiveKlass: String
+    }
 
   connect() {
     console.log("Code editor connected");
@@ -88,11 +92,13 @@ export default class extends Controller {
             e.preventDefault();
             this.languageToggleTargets.forEach(toggle=>{
                if (toggle === languageToggle) {
-                 toggle.classList.add("bg-[#2e2f3f]");
-                 toggle.classList.remove("bg-slate-950", "hover:bg-slate-800");
+                   console.log(this.activeKlassValue.split(" "));
+                   console.log(this.inactiveKlassValue.split(" "));
+                   toggle.classList.remove(...this.inactiveKlassValue.split(" "));
+                   toggle.classList.add(...this.activeKlassValue.split(" "));
                } else {
-                 toggle.classList.remove("bg-[#2e2f3f]");
-                 toggle.classList.add("bg-slate-950", "hover:bg-slate-800");
+                   toggle.classList.remove(...this.activeKlassValue.split(" "));
+                   toggle.classList.add(...this.inactiveKlassValue.split(" "));
                }
             });
             let language = languageToggle.dataset.language;

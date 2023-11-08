@@ -1,0 +1,11 @@
+<% content_for :navbar do %>
+  <div data-controller="code-editor-panel">
+    <%= link_to "New Frame", new_code_frame_path,
+      class: "flex text-white text-xs py-2 px-5 mx-1 rounded-md bg-slate-800 items-center"
+    %>
+  </div>
+<% end %>
+
+<div class="lg:h-full" data-controller="code-editor" id="code-editor" data-code-editor-inactive-klass-value="text-slate-400 hover:text-slate-800" data-code-editor-active-klass-value="border-b-4 border-slate-800 text-slate-800 hover:text-slate-400">
+
+</div>

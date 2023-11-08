@@ -14,17 +14,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_115618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "code_frames", force: :cascade do |t|
+  create_table "code_frames", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
+    t.string "description"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "code_snippets", force: :cascade do |t|
+  create_table "code_snippets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "language", null: false
     t.text "content"
     t.string "file_name"
-    t.bigint "code_frame_id", null: false
+    t.uuid "code_frame_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code_frame_id"], name: "index_code_snippets_on_code_frame_id"

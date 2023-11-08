@@ -1,6 +1,10 @@
 <nav class="flex justify-between items-center h-12 fixed w-full px-4 border-b-2 border-slate-100">
   <div class="flex">
-    <img class="h-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGbQRg7fo_DLbFyuf9dU6K1QDjFo-Ub7s3A&usqp=CAU">
+    <%= link_to root_path do %>
+      <img class="h-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGbQRg7fo_DLbFyuf9dU6K1QDjFo-Ub7s3A&usqp=CAU">
+    <% end %>
   </div>
-  <span></span>
+  <div>
+    <%= yield :navbar %>
+  </div>
 </nav>

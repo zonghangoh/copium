@@ -1,0 +1,63 @@
+<div class="lg:h-full" data-controller="code-editor" id="code-editor" data-code-editor-inactive-klass-value="text-slate-400 hover:text-slate-800" data-code-editor-active-klass-value="border-b-4 border-slate-800 text-slate-800 hover:text-slate-400">
+  <div class="h-full w-full pt-2 lg:columns-2 gap-1" >
+    <div class="flex flex-col lg:h-full h-1/2">
+      <div class="flex justify-between">
+        <div class="px-5">
+          <button class="hover:bg-slate-200 text-slate-800 hover:text-slate-400 text-xs py-1 px-4 mx-1 rounded-t border-b-4 border-slate-800" data-code-editor-target="languageToggle" data-language="html">
+            <i class="fa-brands fa-html5"></i> &nbsp;
+            html
+          </button>
+          <button class="hover:bg-slate-200 text-slate-400 hover:text-slate-800 text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="css">
+            <i class="fa-brands fa-css3-alt"></i> &nbsp;
+            css
+          </button>
+          <button class="hover:bg-slate-200 text-slate-400 hover:text-slate-800 text-xs py-1 px-4 mx-1 rounded-t" data-code-editor-target="languageToggle" data-language="javascript">
+            <i class="fa-brands fa-square-js"></i> &nbsp;
+            js
+          </button>
+        </div>
+      </div>
+      <% code_frame.code_snippets.each_with_index do |code_snippet, index| %>
+        <div class="flex-1 <%= index.zero? ? "" : "hidden" %>" data-code-editor-target="editor" data-snippet-id="<%= code_snippet.id %>" data-language="<%= code_snippet.language %>">
+          <textarea class="hidden">
+              <%= code_snippet.content %>
+          </textarea>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col lg:h-full h-1/2">
+      <div class="">
+        <div class="">
+          <button class="text-slate-400 text-xs py-1 px-4 mx-1 rounded-t border-b-4 border-slate-400 flex items-center">
+            Hot Reload &nbsp;
+            <div class="p-1 flex items-center">
+              <svg height="0.6rem" fill="rgb(148 163 184)" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16 S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98 c0,0.008-0.001,0.014-0.001,0.02c0,8.836,7.164,16,16,16s16-7.164,16-16S72.836,48.002,64,48z M64,8c4.418,0,8,3.582,8,8 s-3.582,8-8,8h-8v-8C56,11.582,59.582,8,64,8z M8,16c0-4.418,3.582-8,8-8s8,3.582,8,8v8h-8C11.582,24,8,20.417,8,16z M16,72 c-4.418,0-8-3.582-8-8s3.582-8,8-8l0,0h8v8C24,68.418,20.418,72,16,72z M32,48V32h16v16H32z M64,72c-4.418,0-8-3.582-8-8l0,0v-8 h7.999c4.418,0,8,3.582,8,8S68.418,72,64,72z"></path> </g> </g></svg>
+              <span class="pl-[2px]">
+                S
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <iframe style="width: 100%; height: 100%; background: white;">
+      </iframe>
+    </div>
+  </div>
+  <div data-code-editor-target="modal"
+       class="hidden w-full h-full fixed z-50 top-0 left-0 bg-black bg-opacity-80"
+  >
+    <div
+      class="
+    z-[1100]
+    bg-white
+    max-h-[75%]
+    w-6/12
+    rounded-md
+    p-8
+    absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    >
+      <%= render "control_panel", code_frame: %>
+    </div>
+  </div>
+</div>
